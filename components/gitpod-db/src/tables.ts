@@ -58,6 +58,11 @@ export class GitpodTableDescriptionProvider implements TableDescriptionProvider 
             dependencies: ["d_b_user"],
         },
         {
+            name: "d_b_user",
+            primaryKeys: ["id"],
+            timeColumn: "_lastModified",
+        },
+        {
             name: "d_b_token_entry",
             primaryKeys: ["uid"],
             deletionColumn: "deleted",
