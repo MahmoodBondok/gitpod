@@ -295,8 +295,9 @@ export class TypeORMUserDBImpl extends TransactionalDBImpl<UserDB> implements Us
     public async deleteExpiredTokenEntries(date: string): Promise<void> {
         const repo = await this.getTokenRepo();
         await repo
-            .createQueryBuilder("te")
+            .createQueryBuilder()
             .delete()
+            .from(DBTokenEntry, "te")
             .where("te.expiryDate != ''")
             .andWhere("te.refreshable != 1")
             .andWhere("te.expiryDate <= :date", { date })
