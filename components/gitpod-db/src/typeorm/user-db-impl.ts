@@ -331,8 +331,7 @@ export class TypeORMUserDBImpl extends TransactionalDBImpl<UserDB> implements Us
         const repo = await this.getTokenRepo();
         for (const existing of existingTokens) {
             if (!shouldDelete || shouldDelete(existing)) {
-                existing.deleted = true;
-                await repo.save(existing);
+                await repo.delete(existing.uid);
             }
         }
     }
