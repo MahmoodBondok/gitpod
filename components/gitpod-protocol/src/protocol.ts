@@ -750,8 +750,6 @@ export interface TokenEntry {
     token: Token;
     expiryDate?: string;
     refreshable?: boolean;
-    /** This is a flag that triggers the HARD DELETION of this entity */
-    deleted?: boolean;
 }
 
 export interface EmailDomainFilterEntry {
